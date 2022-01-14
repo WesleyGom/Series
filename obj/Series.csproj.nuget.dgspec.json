@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\Series\\Series.csproj": {}
+    "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\series\\Series.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\Series\\Series.csproj": {
+    "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\series\\Series.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\Series\\Series.csproj",
+        "projectUniqueName": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\series\\Series.csproj",
         "projectName": "Series",
-        "projectPath": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\Series\\Series.csproj",
+        "projectPath": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\series\\Series.csproj",
         "packagesPath": "C:\\Users\\Wesley\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\Series\\obj\\",
+        "outputPath": "C:\\Users\\Wesley\\Desktop\\DIO\\Projeto final Dio-Avanade\\series\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wesley\\AppData\\Roaming\\NuGet\\NuGet.Config",

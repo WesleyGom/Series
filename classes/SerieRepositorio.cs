@@ -1,40 +1,41 @@
 using System;
 using System.Collections.Generic;
 using Series;
- 
+
 namespace Series
 {
     public class SerieRepositorio : IRepositorio<Serie>
     {
         private List<Serie> listaSerie = new List<Serie>();
-        public void Atualiza(int id, Task objeto)
+
+        public void Atualiza(int id, Serie objeto)
         {
             listaSerie[id] = objeto;
         }
 
-        public void Excluir(int Id)
+        public void Exclui(int Id)
         {
-            listaSerie.RemoveAt(Id);
+            listaSerie[Id].Excluir();
         }
 
-        public void Insere(Task entidade)
+        public void Insere(Serie objeto)
         {
-            throw new NotImplementedException();
+            listaSerie.Add(objeto);
         }
 
         public List<Serie> Lista()
         {
-            throw new NotImplementedException();
+            return listaSerie;
         }
 
         public int ProximoId()
         {
-            throw new NotImplementedException();
+            return listaSerie.Count;
         }
 
         public Serie RetornaPorId(int Id)
         {
-            throw new NotImplementedException();
+            return listaSerie[Id];
         }
     }
 }

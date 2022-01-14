@@ -4,8 +4,10 @@ namespace Series
 {
     class Program
     {
+        static SerieRepositorio repositorio = new SerieRepositorio();
         static void Main(string[] args)
-        {          string opcaoUsuario = ObterOpcaoUsuario();
+        {          
+            string opcaoUsuario = ObterOpcaoUsuario();
 
 			while (opcaoUsuario.ToUpper() != "X")
 			{
@@ -41,13 +43,13 @@ namespace Series
 			Console.ReadLine();
         }
 
-        private static void ExcluirSerie()
+         private static void ExcluirSerie()
 		{
 			Console.Write("Digite o id da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
 			repositorio.Exclui(indiceSerie);
-		}
+        }
 
         private static void VisualizarSerie()
 		{
@@ -59,7 +61,7 @@ namespace Series
 			Console.WriteLine(serie);
 		}
 
-        private static void AtualizarSerie()
+         private static void AtualizarSerie()
 		{
 			Console.Write("Digite o id da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
@@ -83,14 +85,17 @@ namespace Series
 			string entradaDescricao = Console.ReadLine();
 
 			Serie atualizaSerie = new Serie(id: indiceSerie,
-										genero: (Genero)entradaGenero,
-										titulo: entradaTitulo,
-										ano: entradaAno,
-										descricao: entradaDescricao);
+										Genero: (Genero)entradaGenero,
+										Titulo: entradaTitulo,
+										Ano: entradaAno,
+										Descricao: entradaDescricao);
 
 			repositorio.Atualiza(indiceSerie, atualizaSerie);
-		}
-        private static void ListarSeries()
+
+        }
+
+
+         private static void ListarSeries()
 		{
 			Console.WriteLine("Listar séries");
 
@@ -102,49 +107,52 @@ namespace Series
 				return;
 			}
 
-			foreach (var serie in lista)
-			{
-                var excluido = serie.retornaExcluido();
+			foreach (var Serie in lista)
+            {
+                var excluido = Serie.retornaExcluido();
                 
-				Console.WriteLine("#ID {0}: - {1} {2}", serie.retornaId(), serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
-			}
-		}
+				Console.WriteLine("#ID {0}: - {1} {2}", Serie.retornaId(), Serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
+            }
 
+        }
+        
         private static void InserirSerie()
-		{
-			Console.WriteLine("Inserir nova série");
+		    {
+			    Console.WriteLine("Inserir nova série");
 
 			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
 			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
 			foreach (int i in Enum.GetValues(typeof(Genero)))
-			{
+			    {   
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-			}
-			Console.Write("Digite o gênero entre as opções acima: ");
-			int entradaGenero = int.Parse(Console.ReadLine());
+			    }
+			    Console.Write("Digite o gênero entre as opções acima: ");
+			    int entradaGenero = int.Parse(Console.ReadLine());
 
-			Console.Write("Digite o Título da Série: ");
-			string entradaTitulo = Console.ReadLine();
+			    Console.Write("Digite o Título da Série: ");
+			    string entradaTitulo = Console.ReadLine();
 
-			Console.Write("Digite o Ano de Início da Série: ");
-			int entradaAno = int.Parse(Console.ReadLine());
+			    Console.Write("Digite o Ano de Início da Série: ");
+			    int entradaAno = int.Parse(Console.ReadLine());
 
-			Console.Write("Digite a Descrição da Série: ");
-			string entradaDescricao = Console.ReadLine();
+			    Console.Write("Digite a Descrição da Série: ");
+			    string entradaDescricao = Console.ReadLine();
 
-			Serie novaSerie = new Serie(id: repositorio.ProximoId(),
-										genero: (Genero)entradaGenero,
-										titulo: entradaTitulo,
-										ano: entradaAno,
-										descricao: entradaDescricao);
+			    Serie novaSerie = new Serie(id: repositorio.ProximoId(),
+										Genero: (Genero)entradaGenero,
+										Titulo: entradaTitulo,
+										Ano: entradaAno,
+										Descricao: entradaDescricao);
 
-			repositorio.Insere(novaSerie);
-		}
+			    repositorio.Insere(novaSerie);
+            }
+
+        
 
         private static string ObterOpcaoUsuario()
-		{
-			Console.WriteLine();
-			Console.WriteLine("DIO Séries a seu dispor!!!");
+        {
+            Console.WriteLine();
+			Console.WriteLine("Avanade Séries a seu dispor!!!");
 			Console.WriteLine("Informe a opção desejada:");
 
 			Console.WriteLine("1- Listar séries");
@@ -159,29 +167,6 @@ namespace Series
 			string opcaoUsuario = Console.ReadLine().ToUpper();
 			Console.WriteLine();
 			return opcaoUsuario;
-		}
-    }
-}
-
-          Console.WriteLine("Hello World!");
-        }
-        private static string ObterOpcaoUsuario()
-        {
-            Console.WriteLine();
-            Console.WriteLine("Series a vonstade!");
-            Console.WriteLine("Informe a oção desejada:");
-
-            Console.WriteLine("1 - Listar séries");
-            Console.WriteLine("2- Inserir nova Série:"):
-            Console.WriteLine("3- Escluir série");
-            Console.WriteLine("4- Visualizar série:");
-            Console.WriteLine("C- Limpar Tela.");
-            Console.WriteLine("X - Sair.");
-            Console.WriteLine();
-
-            string OpcaoUsuario = Console.ReadLine().ToUpper();
-            Console.WriteLine();
-            return OpcaoUsuario;
         }
     }
     
